@@ -9,7 +9,7 @@ const debug = debugCreator("ecommerce:server:app");
 const app = express();
 app.use(helmet());
 
-const startServer = (port: number) => {
+const startServer = (port: number): void => {
   app.listen(port, () => {
     debug(chalk.green(`Listening on port ${chalk.blue(port)}`));
   });
