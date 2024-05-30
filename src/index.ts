@@ -1,8 +1,9 @@
-import chalk from "chalk";
-import startServer from "./server/app.js";
 import "dotenv/config";
-import debugCreator from "debug";
+import "./server/index.js";
+import { startServer } from "./server/app.js";
 import connectToDatabase from "./database/index.js";
+import debugCreator from "debug";
+import chalk from "chalk";
 
 const debug = debugCreator("ecommerce:server:index");
 
