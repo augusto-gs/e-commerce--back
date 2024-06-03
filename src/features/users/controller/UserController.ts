@@ -14,7 +14,7 @@ class UserController {
   ) => {
     try {
       const { password, username, name } = req.body;
-      const statusCode = 401;
+      const statusCode = 201;
 
       const newUser = await this.userRepository.registerUser(
         name,
