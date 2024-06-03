@@ -13,7 +13,7 @@ const generalError = async (
 ): Promise<void> => {
   const statusCode = error.statusCode ?? 500;
   const privateMessage = error.customMessage ?? error.message;
-  debug(chalk.red("Error" + privateMessage));
+  debug(chalk.red("Error" + error.message));
 
   res.status(statusCode).json({ error: privateMessage });
 };

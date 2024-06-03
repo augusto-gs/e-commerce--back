@@ -1,3 +1,5 @@
+import { type Request } from "express";
+
 export interface UserRepositoryMongooseStructure {
   registerUser: (
     name: string,
@@ -11,3 +13,9 @@ export interface UserStructure {
   username: string;
   password: string;
 }
+
+export type UserRequestStructure = Request<
+  Record<string, unknown>,
+  Record<string, unknown>,
+  UserStructure
+>;
