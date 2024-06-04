@@ -21,10 +21,6 @@ class UserRepository implements UserRepositoryMongooseStructure {
       password: hashedPassword,
     });
 
-    if (!newUser) {
-      throw new Error("Username already exists");
-    }
-
     return newUser.username;
   }
 }
