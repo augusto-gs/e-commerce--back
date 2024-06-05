@@ -21,9 +21,16 @@ export interface UserStructure {
 }
 
 export type UserCredentials = Pick<UserStructure, "_id" | "username" | "name">;
+export type UserCredentialsWithoutId = Omit<UserStructure, "name">;
 
 export type UserRequestStructure = Request<
   Record<string, unknown>,
   Record<string, unknown>,
   UserStructure
+>;
+
+export type UserCredentialsRequestStructure = Request<
+  Record<string, unknown>,
+  Record<string, unknown>,
+  UserCredentialsWithoutId
 >;
