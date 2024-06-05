@@ -40,7 +40,7 @@ class UserRepository implements UserRepositoryMongooseStructure {
 
       return userWithoutPassword;
     } catch (error) {
-      throw new Error("Error verifying user" + (error as Error).message);
+      throw new Error("Error verifying user " + (error as Error).message);
     }
   }
 }

@@ -1,9 +1,5 @@
 import { Joi, validate } from "express-validation";
-import {
-  type UserCredentialsWithoutId,
-  type UserCredentials,
-  type UserStructure,
-} from "../types";
+import { type UserCredentialsWithoutId, type UserStructure } from "../types";
 
 const passData = {
   password: Joi.string().min(8),

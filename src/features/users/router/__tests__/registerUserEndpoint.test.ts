@@ -12,12 +12,12 @@ describe("Given a POST method to a /auth/register path", () => {
 
       const response = await request(app)
         .post(path)
-        .send(userMock)
+        .send({ ...userMock, username: "test-user" })
         .expect(expectedStatusCode);
 
       const responseBody = response.body as { user: string };
 
-      expect(responseBody).toHaveProperty("user", "testuser");
+      expect(responseBody).toHaveProperty("user", "test-user");
     });
 
     describe("When it receives a request with an already created username", () => {

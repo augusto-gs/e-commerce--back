@@ -1,5 +1,5 @@
 import { type Response, type Request, type NextFunction } from "express";
-import { userMock } from "../../mocks/userMock";
+import { credentialsMock, userMock } from "../../mocks/userMock";
 import type UserRepository from "../../repository/UsersRepository";
 import {
   type UserCredentialsRequestStructure,
@@ -10,15 +10,13 @@ import jwt from "jsonwebtoken";
 import CustomError from "../../../../server/CustomError/CustomError";
 
 describe("Given a loginUser method on a UserController class", () => {
-  const { name, _id, ...requestBody } = userMock;
-
   const res: Pick<Response, "status" | "json"> = {
     json: jest.fn().mockReturnThis(),
     status: jest.fn().mockReturnThis(),
   };
 
   const req: Pick<Request, "body"> = {
-    body: requestBody,
+    body: credentialsMock,
   };
 
   const next = jest.fn();
@@ -67,7 +65,7 @@ describe("Given a loginUser method on a UserController class", () => {
   });
 
   describe("When it receives a request with incorrect credentials", () => {
-    test("Then it should respond with status code of 401 and a 'Incorrect credentials' messasge", async () => {
+    test("Then it should respond with status code of 401 and a 'Incorrect credentials' message", async () => {
       const expectedError = new CustomError(new Error().message, 409);
 
       const userRepository: Partial<UserRepositoryMongooseStructure> = {
