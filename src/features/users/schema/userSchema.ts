@@ -1,5 +1,9 @@
 import { Joi, validate } from "express-validation";
-import { type UserStructure } from "../types";
+import {
+  type UserCredentialsWithoutId,
+  type UserCredentials,
+  type UserStructure,
+} from "../types";
 
 const passData = {
   password: Joi.string().min(8),
@@ -15,8 +19,15 @@ const registerSchema = {
     username,
   }),
 };
+
+const loginSchema = {
+  body: Joi.object<UserCredentialsWithoutId>({ password, username }),
+};
+
 export const registerValidation = validate(
   registerSchema,
   {},
   { abortEarly: false },
 );
+
+export const loginValidation = validate(loginSchema, {}, { abortEarly: false });

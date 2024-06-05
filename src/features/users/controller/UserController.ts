@@ -1,3 +1,4 @@
+import "dotenv/config";
 import jwt, { type JwtPayload } from "jsonwebtoken";
 import { type NextFunction, type Response } from "express";
 import {
