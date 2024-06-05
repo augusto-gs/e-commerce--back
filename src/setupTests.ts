@@ -6,7 +6,7 @@ import { connectToDatabase } from "./database/index.js";
 import mongoose from "mongoose";
 import User from "./features/users/model/User.js";
 
-export let server: MongoMemoryServer;
+let server: MongoMemoryServer;
 
 beforeAll(async () => {
   server = await MongoMemoryServer.create();
@@ -19,7 +19,7 @@ beforeAll(async () => {
 
   await User.create({
     name: "test",
-    username: "test-user",
+    username: "testuser",
     password: hashedPassword,
   });
 });
