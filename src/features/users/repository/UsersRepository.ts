@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 import {
   type UserStructure,
   type UserRepositoryMongooseStructure,
+  type UserCredentials,
 } from "../types";
 
 class UserRepository implements UserRepositoryMongooseStructure {
@@ -22,6 +23,25 @@ class UserRepository implements UserRepositoryMongooseStructure {
     });
 
     return newUser.username;
+  }
+
+  async loginUser(
+    username: string,
+    userPassword: string,
+  ): Promise<UserCredentials> {
+    try {
+      const user = await User.findOne({ username });
+
+      if (!(await bcrypt.compare(userPassword, user!.password))) {
+        throw new Error("Incorrect credentials");
+      }
+
+      const { password, ...userWithoutPassword } = user!.toJSON();
+
+      return userWithoutPassword;
+    } catch (error) {
+      throw new Error("Error verifying user" + (error as Error).message);
+    }
   }
 }
 
