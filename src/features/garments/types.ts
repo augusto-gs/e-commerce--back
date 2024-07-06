@@ -17,3 +17,7 @@ export interface GarmentStructureWithoutId {
   style: GarmentStyle;
   imageUrl: string;
 }
+
+export interface GarmentRepositoryMongooseStructure {
+  getGarments: () => Promise<GarmentStructure[]>;
+}

@@ -6,6 +6,7 @@ import generalError from "./middlewares/generalError.js";
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
+import GarmentMongooseRepository from "../features/garments/repository/GarmentMongooseRepository.js";
 
 app.use(morgan("dev"));
 
