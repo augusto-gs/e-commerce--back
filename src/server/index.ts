@@ -5,10 +5,19 @@ import endpointNotFound from "./middlewares/endpointNotFound.js";
 import generalError from "./middlewares/generalError.js";
 import express from "express";
 import morgan from "morgan";
+import cors from "cors";
 
 app.use(morgan("dev"));
 
 app.use(express.json());
+
+const corsWhitelist = [process.env.ALLOWED_ORIGIN!];
+
+app.use(
+  cors({
+    origin: corsWhitelist,
+  }),
+);
 
 app.use("/", pingRouter);
 
