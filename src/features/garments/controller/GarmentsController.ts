@@ -12,7 +12,7 @@ class GarmentController {
     try {
       const garments = await this.garmentRepository.getGarments();
 
-      res.status(200).json(garments);
+      res.status(200).json({ garments });
     } catch (error) {
       next(error);
     }

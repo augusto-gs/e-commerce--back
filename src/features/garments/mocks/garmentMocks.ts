@@ -10,7 +10,7 @@ export const garmentMocks = [
     price: 40,
     gender: "man",
     style: "formal",
-    imageUrl: "",
+    imageUrl: "image/path",
   },
   {
     _id: "6657189fe96ed334486f7076",
@@ -23,6 +23,6 @@ export const garmentMocks = [
     price: 70,
     gender: "man",
     style: "casual",
-    imageUrl: "",
+    imageUrl: "image/path",
   },
 ];
