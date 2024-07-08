@@ -1,20 +1,22 @@
-import { type Response, type Request } from "express";
-import { type GarmentRepositoryMongooseStructure } from "../types";
+import { type Response, type Request, type NextFunction } from "express";
+import type GarmentMongooseRepository from "../repository/GarmentMongooseRepository";
 
 class GarmentController {
-  constructor(public garmentRepository: GarmentRepositoryMongooseStructure) {}
+  constructor(public garmentRepository: GarmentMongooseRepository) {}
 
-  async getGarments(_req: Request, res: Response): Promise<void> {
+  getGarments = async (
+    _req: Request,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
     try {
       const garments = await this.garmentRepository.getGarments();
 
       res.status(200).json(garments);
     } catch (error) {
-      res.status(500).json({
-        message: `Error getting garments ${error.message}`,
-      });
+      next(error);
     }
-  }
+  };
 }
 
 export default GarmentController;
