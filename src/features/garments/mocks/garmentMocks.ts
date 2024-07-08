@@ -1,0 +1,28 @@
+export const garmentMocks = [
+  {
+    _id: "6657189fe96ed334486f7075",
+    name: "White Linen Shirt",
+    size: "x-large",
+    colors: ["white", "blue", "grey"],
+    stock: 50,
+    newArrivals: false,
+    topSelling: false,
+    price: 40,
+    gender: "man",
+    style: "formal",
+    imageUrl: "",
+  },
+  {
+    _id: "6657189fe96ed334486f7076",
+    name: "Navy Blue Chinos",
+    size: "medium",
+    colors: ["navy", "black", "grey"],
+    stock: 35,
+    newArrivals: true,
+    topSelling: true,
+    price: 70,
+    gender: "man",
+    style: "casual",
+    imageUrl: "",
+  },
+];
