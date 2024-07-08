@@ -6,6 +6,7 @@ import generalError from "./middlewares/generalError.js";
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
+import { garmentRouter } from "../features/garments/router/garmentRouter.js";
 
 app.use(morgan("dev"));
 
@@ -22,6 +23,8 @@ app.use(
 app.use("/", pingRouter);
 
 app.use("/auth", userRouter);
+
+app.use("/garments", garmentRouter);
 
 app.use(endpointNotFound);
 
