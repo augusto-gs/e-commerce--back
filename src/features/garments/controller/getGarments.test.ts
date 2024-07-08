@@ -38,7 +38,7 @@ describe("Given a Garments controller", () => {
         next as NextFunction,
       );
 
-      expect(res.json).toHaveBeenCalledWith(garmentMocks);
+      expect(res.json).toHaveBeenCalledWith({ garments: garmentMocks });
     });
   });
 
